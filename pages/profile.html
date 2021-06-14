@@ -17,6 +17,7 @@
     color: white;
     text-align: center;
     padding: 14px 16px;
+    font-size: 14px;
     text-decoration: none;
 }
 .navigation_list {
@@ -74,7 +75,6 @@ button:hover {
 .img-text-container {
     text-align: center;
     width: 30%;
-    border-right: 3px solid #5d2025;
     padding: 20px 10px;
 }
 img.avatar {
@@ -168,6 +168,27 @@ img.avatar {
     z-index: -1;
     border-radius: inherit;
 }
+@media screen and (min-width: 601px) {
+    .img-text-container {
+        border-right: 3px solid #5d2025;
+    }
+}
+@media screen and (max-width: 600px) {
+    .custom-container {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .img-text-container {
+        width: 100%;
+        border-bottom: 3px solid #5d2025;
+    }
+    .navigation_list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
 </style>
 
 <head>
@@ -177,6 +198,7 @@ img.avatar {
 <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css"/>
 <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css"/>
 <link rel="shortcut icon" type="image/vnd.microsoft.icon" href="../favicon.ico"/>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Profile</title>
 </head> 
 
@@ -193,7 +215,7 @@ img.avatar {
 </ul>
 
 <h1 class="text-center">My Profile</h1>
-<form id="user-profile-form" class="form-custom col-lg-10 col-sm-12" style="float: none; padding: 0;">
+<div id="user-profile-form" class="form-custom col-lg-10 col-sm-12" style="float: none; padding: 0;">
     <div class="custom-container">
         <div class="img-text-container">
             <div class="imgcontainer">
@@ -266,8 +288,7 @@ img.avatar {
             </div>
         </div>
     </div>
-</form>
-
+</div>
 <div class="modal fade" id="edit-profile-modal" tabindex="-1" role="dialog" aria-labelledby="editProfileModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">

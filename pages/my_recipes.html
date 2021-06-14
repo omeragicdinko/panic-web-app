@@ -18,6 +18,7 @@
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
+    font-size: 14px;
 }
 .navigation_list {
     position:sticky;
@@ -39,6 +40,7 @@ body {
 }
 .recipe-links {
     color: black;
+    overflow:auto;
 }
 .recipe-links:hover {
     cursor: pointer;
@@ -55,7 +57,7 @@ body {
 }
 .list-item {
     display: flex;
-    height: 175px;
+    height: auto;
     width: 95%;
     padding: 10px;
     border-radius: 5px;
@@ -83,9 +85,9 @@ body {
     width: 100%;
 }
 .title-text {
-    font-size: 30px;
     font-weight: bold;
     margin-bottom: 6px;
+    width:inherit;
 }
 .body-text {
     display: inherit;
@@ -94,6 +96,7 @@ body {
 }
 .delete-button {
     float:right;
+    padding-right: 10px;
 }
 .edit-button {
     margin-left: 10px;
@@ -143,6 +146,29 @@ img:hover {
 .recipe-list {
     align-items: center;
 }
+@media screen and (min-width: 601px) {
+    .list-item {
+        width: 95%;
+    }
+    .title-text {
+       font-size: 30px; 
+    }
+}
+@media screen and (max-width: 600px) {
+    .list-item {
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 85%;
+    }
+    .title-text {
+       font-size: 20px; 
+    }
+    .navigation_list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
 </style>
 
 <head>
@@ -151,6 +177,7 @@ img:hover {
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"/>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="shortcut icon" type="image/vnd.microsoft.icon" href="../favicon.ico"/>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>My recipes</title>
 </head>
 
@@ -193,7 +220,7 @@ img:hover {
         </div>
           <div class="text-container">
             <div class="row inner-text-container">
-                <div class="title-text"><a onclick="openRecipeInfo(2)" class="recipe-links">Andie's Quick 'n Easy Sneaky Sloppy Joes</a><i class="fa fa-trash-o delete-button" onclick="confirm_modal_show(2)"></i><i class="fa fa-pencil edit-button" onclick="edit_recipe(2)"></i></div>
+                <div class="title-text"><a onclick="openRecipeInfo(2)" class="recipe-links">Andie's Sloppy Joes</a><i class="fa fa-trash-o delete-button" onclick="confirm_modal_show(2)"></i><i class="fa fa-pencil edit-button" onclick="edit_recipe(2)"></i></div>
                 <div class="body-text">I cobbled this recipe together from a myriad of online recipes. I couldn't find a more veggie-friendly option, and had BBQ sauce in the fridge. This is a kiddo and grandkid-friendly recipe you can whip up for an in-a-pinch meal... or add it to your regular menu rotation and get those veggies in without a struggle!</div>
             </div>
           </div>
@@ -217,7 +244,7 @@ img:hover {
         </div>
         <div class="text-container">
             <div class="row inner-text-container">
-                <div class="title-text"><a onclick="openRecipeInfo(4)" class="recipe-links">Grandma's Famous Salmon Cakes</a><i class="fa fa-trash-o delete-button" onclick="confirm_modal_show(4)"></i><i class="fa fa-pencil edit-button" onclick="edit_recipe(4)"></i></div>
+                <div class="title-text"><a onclick="openRecipeInfo(4)" class="recipe-links">Grandma's Salmon Cakes</a><i class="fa fa-trash-o delete-button" onclick="confirm_modal_show(4)"></i><i class="fa fa-pencil edit-button" onclick="edit_recipe(4)"></i></div>
                 <div class="body-text">This is a recipe for my Grandmother's famous salmon cakes. It is a family recipe that has been passed down through generations. Serve with macaroni and cheese or any other type of side dish.</div>
             </div>
         </div>
@@ -409,7 +436,7 @@ function edit_recipe(i) {
     $('#edit-recipe-form input[name="file"]').val("");
   } else if (i == 2) {
     $("#edit-recipe-modal").modal('toggle');
-    $('#edit-recipe-form input[name="recipe-name"]').val("Andie's Quick 'n Easy Sneaky Sloppy Joes");
+    $('#edit-recipe-form input[name="recipe-name"]').val("Andie's Sloppy Joes");
     $('#edit-recipe-form textarea[name="recipe-description"]').val("I cobbled this recipe together from a myriad of online recipes. I couldn't find a more veggie-friendly option, and had BBQ sauce in the fridge. This is a kiddo and grandkid-friendly recipe you can whip up for an in-a-pinch meal... or add it to your regular menu rotation and get those veggies in without a struggle!");
     $('#edit-recipe-form textarea[name="ingredients"]').val("1 cup lentils \n2 onions diced \n1 pound lean ground beef \n1 large green bell pepper diced \n3/4 cup ketchup \n3/4 cup barbeque sauce \n1 tablespoon Worcestershire sauce \n1 tablespoon minced garlic");
     $('#edit-recipe-form textarea[name="cooking-steps"]').val("Step 1: \nPlace lentils in a small pot and cover with 2 cups hot water. Bring to a boil; reduce heat and simmer until lentils are tender, about 15 minutes. Drain.\nStep 2: \nHeat a large nonstick skillet over medium heat. Add onions; cook and stir until softened, 3 to 5 minutes. Add ground beef and green bell pepper; cook and stir until browned, about 8 minutes. \nStep 3: \nStir drained lentils, ketchup, barbeque sauce, Worcestershire sauce, and minced garlic into the skillet. Reduce heat to low and simmer until flavors combine and mixture thickens to desired consistency, 15 to 20 minutes.");
@@ -425,7 +452,7 @@ function edit_recipe(i) {
     $('#edit-recipe-form input[name="file"]').val("");
   } else if (i == 4) {
     $("#edit-recipe-modal").modal('toggle');
-    $('#edit-recipe-form input[name="recipe-name"]').val("Grandma's Famous Salmon Cakes");
+    $('#edit-recipe-form input[name="recipe-name"]').val("Grandma's Salmon Cakes");
     $('#edit-recipe-form textarea[name="recipe-description"]').val("This is a recipe for my Grandmother's famous salmon cakes. It is a family recipe that has been passed down through generations. Serve with macaroni and cheese or any other type of side dish.");
     $('#edit-recipe-form textarea[name="ingredients"]').val("1 (14.75 ounce) can salmon drained and flaked \n2 eggs, beaten \n1 small onion, diced \n1 teaspoon ground black pepper \n3 tablespoons vegetable oil");
     $('#edit-recipe-form textarea[name="cooking-steps"]').val("Step 1: \nPick through the salmon and remove any bones. In a mixing bowl, beat the eggs and add the diced onion, salmon and pepper. Mix thoroughly.\nStep 2: \nShape into 2 ounce patties; about 7 or 8 patties. In a large skillet over medium heat, heat the oil. Fry each patty for 5 minutes on each side or until crispy and golden brown.");
@@ -452,7 +479,7 @@ function openRecipeInfo(i) {
         window.location = 'recipe_info.html';
     } else if (i == 2) {
         localStorage.setItem('recipe_image_url', '../images/recipe_2.jpg');
-        localStorage.setItem('recipe_name', "Andie's Quick 'n Easy Sneaky Sloppy Joes");
+        localStorage.setItem('recipe_name', "Andie's Sloppy Joes");
         localStorage.setItem('recipe_ingredients', '1 cup lentils \n2 onions diced \n1 pound lean ground beef \n1 large green bell pepper diced \n3/4 cup ketchup \n3/4 cup barbeque sauce \n1 tablespoon Worcestershire sauce \n1 tablespoon minced garlic');
         localStorage.setItem('recipe_cooking_process', 'Step 1: \nPlace lentils in a small pot and cover with 2 cups hot water. Bring to a boil; reduce heat and simmer until lentils are tender, about 15 minutes. Drain.\nStep 2: \nHeat a large nonstick skillet over medium heat. Add onions; cook and stir until softened, 3 to 5 minutes. Add ground beef and green bell pepper; cook and stir until browned, about 8 minutes. \nStep 3: \nStir drained lentils, ketchup, barbeque sauce, Worcestershire sauce, and minced garlic into the skillet. Reduce heat to low and simmer until flavors combine and mixture thickens to desired consistency, 15 to 20 minutes.');
         localStorage.setItem('cooking_timer', 46);
@@ -466,7 +493,7 @@ function openRecipeInfo(i) {
         window.location = 'recipe_info.html';
     } else if (i == 4) {
         localStorage.setItem('recipe_image_url', '../images/recipe_4.jpg');
-        localStorage.setItem('recipe_name', "Grandma's Famous Salmon Cakes");
+        localStorage.setItem('recipe_name', "Grandma's Salmon Cakes");
         localStorage.setItem('recipe_ingredients', '1 (14.75 ounce) can salmon drained and flaked \n2 eggs, beaten \n1 small onion, diced \n1 teaspoon ground black pepper \n3 tablespoons vegetable oil');
         localStorage.setItem('recipe_cooking_process', 'Step 1: \nPick through the salmon and remove any bones. In a mixing bowl, beat the eggs and add the diced onion, salmon and pepper. Mix thoroughly.\nStep 2: \nShape into 2 ounce patties; about 7 or 8 patties. In a large skillet over medium heat, heat the oil. Fry each patty for 5 minutes on each side or until crispy and golden brown.');
         localStorage.setItem('cooking_timer', 20);

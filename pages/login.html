@@ -42,7 +42,6 @@ button:hover {
     margin: 24px 0 12px 0;
 }
 img.avatar {
-    width: 15%;
     border-radius: 30%;
 }
 .custom-container {
@@ -56,6 +55,26 @@ img.avatar {
 .custom-card {
     margin: 0 auto;
 }
+@media screen and (min-width: 601px) {
+  .custom-card {
+    font-size: 20px;
+  }
+}
+@media screen and (max-width: 600px) {
+  .custom-card {
+    font-size: 14px;
+  }
+}
+@media screen and (min-width: 601px) {
+  .avatar {
+    width: 20%;
+  }
+}
+@media screen and (max-width: 600px) {
+  .avatar {
+    width: 40%;
+  }
+}
 span {
     color: black;
 }
@@ -68,6 +87,7 @@ span {
 <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css"/>
 <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css"/>
 <link rel="shortcut icon" type="image/vnd.microsoft.icon" href="../favicon.ico"/>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Login</title>
 </head>
 
@@ -77,7 +97,7 @@ span {
     <div class="imgcontainer">
       <img src="../images/app-icon.png" alt="Avatar" class="avatar">
     </div>
-    <div class="col-lg-4 col-md-8 custom-card" style="float:none;">
+    <div class="col-lg-4 col-sm-8 custom-card" style="float:none;">
       <div class="custom-container">
         <div>
           <label><b>Username or email address</b></label>

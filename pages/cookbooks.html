@@ -18,6 +18,7 @@
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
+    font-size: 14px;
 }
 .navigation_list {
     position:sticky;
@@ -51,7 +52,7 @@ body {
 }
 .list-item {
     display: flex;
-    height: 175px;
+    height: auto;
     width: 95%;
     padding: 10px;
     border-radius: 5px;
@@ -64,27 +65,24 @@ body {
 }
 .img-container {
     display: inherit;
-    height: auto;
     width: 150px;
     height: 150px;
 }
 .text-container {
     margin-left: 10px;
     display: flex;
-    width: 85%;
-    padding-right: 6px;
 }
 .inner-text-container {
     padding: 0 10px;
 }
 .title-text {
-    font-size: 30px;
     font-weight: bold;
     margin-bottom: 6px;
+    text-align: center;
     width: 50%;
     align-items: center;
     overflow: hidden;
-    margin: auto 15px auto 0;
+    margin: auto;
 }
 .button-container {
     font-size: 30px;
@@ -93,13 +91,12 @@ body {
 }
 .body-text {
     display: inherit;
-    max-height: 65%;
-    width: 50%;
     overflow: hidden;
-    margin: auto 0;
+    margin: auto;
 }
 .delete-button {
     float:right;
+    padding-right: 10px;
 }
 .edit-button {
     margin-left: 10px;
@@ -150,6 +147,45 @@ body {
 .select-container {
     margin-bottom: 10px;
 }
+@media screen and (min-width: 601px) {
+    .list-item {
+        width: 95%;
+    }
+    .title-text {
+       font-size: 30px; 
+    }
+    .body-text {
+      width: 50%;
+    }
+    .text-container {
+      width: 85%;
+    }
+}
+@media screen and (max-width: 600px) {
+    .list-item {
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 85%;
+    }
+    .text-container {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .title-text {
+       font-size: 20px; 
+    }
+    .navigation_list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .text-container {
+      width: 100%;
+    }
+    .body-text {
+      width: 100%;
+    }
+}
 </style>
 
 <head>
@@ -159,6 +195,7 @@ body {
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/css/bootstrap-multiselect.css" />
 <link rel="shortcut icon" type="image/vnd.microsoft.icon" href="../favicon.ico"/>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Cookbooks</title>
 </head>
 
@@ -194,7 +231,7 @@ body {
                   <ul>
                       <div onclick="openRecipeInfo(1)" class="recipe-links">- Skillet Chicken Bulgogi</div>
                       <div onclick="openRecipeInfo(3)" class="recipe-links">- Omelet in a Mug</div>
-                      <div onclick="openRecipeInfo(4)" class="recipe-links">- Grandma's Famous Salmon Cakes</div>
+                      <div onclick="openRecipeInfo(4)" class="recipe-links">- Grandma's Salmon Cakes</div>
                   </ul>  
                 </div>
               </div>
@@ -210,7 +247,7 @@ body {
               <div class="title-text">Perfect Breakfast<i class="fa fa-pencil edit-button" onclick="edit_cookbook(2)"></i></div>
                 <div class="body-text">
                   <ul>
-                      <div onclick="openRecipeInfo(2)" class="recipe-links">- Andie's Quick 'n Easy Sneaky Sloppy Joes</div>
+                      <div onclick="openRecipeInfo(2)" class="recipe-links">- Andie's Sloppy Joes</div>
                       <div onclick="openRecipeInfo(1)" class="recipe-links">- Skillet Chicken Bulgogi</div>
                       <div onclick="openRecipeInfo(3)" class="recipe-links">- Omelet in a Mug</div>
                   </ul>  
@@ -259,9 +296,9 @@ body {
               <select id="recipes-1" name="recipes" multiple class="form-control" required>
                 <option value="1">Skillet Chicken Bulgogi</option>
                 <option value="2">Omelet in a Mug</option>
-                <option value="3">Grandma's Famous Salmon Cakes</option>
+                <option value="3">Grandma's Salmon Cakes</option>
                 <option value="4">Klupskies (Polish Burgers)</option>
-                <option value="5">Andie's Quick 'n Easy Sneaky Sloppy Joes</option>
+                <option value="5">Andie's Sloppy Joes</option>
               </select>
           </div>
 
@@ -300,9 +337,9 @@ body {
               <select id="recipes-2" name="recipes" multiple class="form-control">
                 <option value="1">Skillet Chicken Bulgogi</option>
                 <option value="2">Omelet in a Mug</option>
-                <option value="3">Grandma's Famous Salmon Cakes</option>
+                <option value="3">Grandma's Salmon Cakes</option>
                 <option value="4">Klupskies (Polish Burgers)</option>
-                <option value="5">Andie's Quick 'n Easy Sneaky Sloppy Joes</option>
+                <option value="5">Andie's Sloppy Joes</option>
               </select>
             </div>
             <div>
@@ -382,7 +419,7 @@ function openRecipeInfo(i) {
         window.location = 'recipe_info.html';
     } else if (i == 2) {
         localStorage.setItem('recipe_image_url', '../images/recipe_2.jpg');
-        localStorage.setItem('recipe_name', "Andie's Quick 'n Easy Sneaky Sloppy Joes");
+        localStorage.setItem('recipe_name', "Andie's Sloppy Joes");
         localStorage.setItem('recipe_ingredients', '1 cup lentils \n2 onions diced \n1 pound lean ground beef \n1 large green bell pepper diced \n3/4 cup ketchup \n3/4 cup barbeque sauce \n1 tablespoon Worcestershire sauce \n1 tablespoon minced garlic');
         localStorage.setItem('recipe_cooking_process', 'Step 1: \nPlace lentils in a small pot and cover with 2 cups hot water. Bring to a boil; reduce heat and simmer until lentils are tender, about 15 minutes. Drain.\nStep 2: \nHeat a large nonstick skillet over medium heat. Add onions; cook and stir until softened, 3 to 5 minutes. Add ground beef and green bell pepper; cook and stir until browned, about 8 minutes. \nStep 3: \nStir drained lentils, ketchup, barbeque sauce, Worcestershire sauce, and minced garlic into the skillet. Reduce heat to low and simmer until flavors combine and mixture thickens to desired consistency, 15 to 20 minutes.');
         localStorage.setItem('cooking_timer', 46);
@@ -396,7 +433,7 @@ function openRecipeInfo(i) {
         window.location = 'recipe_info.html';
     } else if (i == 4) {
         localStorage.setItem('recipe_image_url', '../images/recipe_4.jpg');
-        localStorage.setItem('recipe_name', "Grandma's Famous Salmon Cakes");
+        localStorage.setItem('recipe_name', "Grandma's Salmon Cakes");
         localStorage.setItem('recipe_ingredients', '1 (14.75 ounce) can salmon drained and flaked \n2 eggs, beaten \n1 small onion, diced \n1 teaspoon ground black pepper \n3 tablespoons vegetable oil');
         localStorage.setItem('recipe_cooking_process', 'Step 1: \nPick through the salmon and remove any bones. In a mixing bowl, beat the eggs and add the diced onion, salmon and pepper. Mix thoroughly.\nStep 2: \nShape into 2 ounce patties; about 7 or 8 patties. In a large skillet over medium heat, heat the oil. Fry each patty for 5 minutes on each side or until crispy and golden brown.');
         localStorage.setItem('cooking_timer', 20);
