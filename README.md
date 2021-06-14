@@ -1,7 +1,7 @@
 # panic-web-app
 
 # Important note:
-Since backend has not been implemented, some features are not fully functional, but the web application is acting as they are. Please read the sections below.
+Since backend has not been implemented, some features are not fully functional, but the web application is acting as if they are. Please read the sections below for more details.
 
 # Login
 You will be able to login only by using the credentials below:
